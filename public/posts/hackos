@@ -3,7 +3,7 @@
 <p>I'm working on a Real-time Augmented Reality Operating System. The kernel assumes dedicated Graphics image processing Co-Processor for
 the devices. The current architecture planned for devices that'd support this OS is below:</p>
 <div style="text-align:center;">
-    <img src="../images/hackos_arch.png" width="40%" height="40%" />
+    <img src="./images/hackos_arch.png" width="40%" height="40%" />
 </div>
 <p>I haven't got a chance to start coding yet, with all the research. The project is completely open-source, if you'd like to contirbute, feel free to raise an Issue, 
 or a PR on </p> <a href="https://github.com/issacnitin/HackOS">https://github.com/issacnitin/HackOS</a>
