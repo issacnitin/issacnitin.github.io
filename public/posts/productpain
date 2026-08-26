@@ -1,4 +1,5 @@
 <h1>The story of product pain</h1>
+<time datetime="2019-05-11">May 11, 2019</time>
 
 <p>How often do you start coding something up and realise you've used two libraries or frameworks that's not inter-operable? 
 Maybe neither of them served all the functions you desired, and maybe you thought you could write a wrapper over both the libraries?</p>

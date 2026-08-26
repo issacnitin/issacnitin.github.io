@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://issacnitin.github.io/BlogEngine",
+  "homepage": "https://issacnitin.github.io",
   "dependencies": {
     "@types/react-router-dom": "5.1.5",
     "react": "^16.8.4",

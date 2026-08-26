@@ -1,6 +1,6 @@
 # BlogEngine
 
-The source for [issacnitin.github.io/BlogEngine](https://issacnitin.github.io/BlogEngine/).
+The source for [issacnitin.github.io](https://issacnitin.github.io/).
 
 ## Local development
 
@@ -18,5 +18,5 @@ Pushes to `master` are built and deployed by the
 public URL, and includes a `404.html` fallback so client-side routes work when
 opened directly.
 
-In the repository's **Settings > Pages** screen, set **Source** to
-**GitHub Actions**.
+In the repository's **Settings > Pages** screen, the **Source** is configured
+as **GitHub Actions**.

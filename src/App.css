@@ -2,6 +2,13 @@
   font-family: 'Roboto Slab';
 }
 
+.App time {
+  display: block;
+  margin: 0.5rem 0 1rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

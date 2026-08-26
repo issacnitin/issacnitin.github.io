@@ -1,4 +1,5 @@
 <h1>Real Time Augmented Reality Operating System</h1>
+<time datetime="2019-04-25">April 25, 2019</time>
 
 <p>I'm working on a Real-time Augmented Reality Operating System. The kernel assumes dedicated Graphics image processing Co-Processor for
 the devices. The current architecture planned for devices that'd support this OS is below:</p>
