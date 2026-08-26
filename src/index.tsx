@@ -19,7 +19,7 @@ ReactDOM.render(
   <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Switch>
       <Route exact path="/" component={App}/>
-      <Route exact path="/posts/:slug" component={Post}/>
+      <Route exact path="/blog/:slug" component={Post}/>
       <Route exact path='/newpost' component={NewPost}/>
     </Switch>
   </BrowserRouter>,
