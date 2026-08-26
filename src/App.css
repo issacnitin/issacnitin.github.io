@@ -9,6 +9,12 @@
   font-size: 0.9rem;
 }
 
+.Post {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;

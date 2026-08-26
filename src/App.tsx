@@ -4,16 +4,19 @@ import Batch from './Utilities/Batch';
 import RegEx from './Utilities/RegEx';
 import About from './Components/About';
 import Header, { Pages } from './Components/Header';
+import { Link } from 'react-router-dom';
 
-class App extends React.Component <{}, { posts: string[], postHeadings: string[], page: Pages }>{
+class App extends React.Component <{}, { posts: string[], postHeadings: string[], postSlugs: string[], page: Pages }>{
 
   // let blogposts: { [key:string]:string } = {} as { [key:string]:string };
   constructor(props: any) {
     super(props);
-    this.state = { posts: [], postHeadings: [], page: Pages.Code };
+    this.state = { posts: [], postHeadings: [], postSlugs: [], page: Pages.Code };
     fetch(process.env.PUBLIC_URL + "/posts/postorder").then((response: Response) => {
         (response.body as ReadableStream).getReader().read().then((content) => {
-          var encodedString = String.fromCharCode.apply(null, content.value).split('\n');
+          var encodedString = String.fromCharCode.apply(null, content.value)
+            .split('\n')
+            .filter((slug: string) => slug.length > 0);
           var batchApi = [];
           for(var api of encodedString) {
             // TODO: Batch the calls
@@ -27,20 +30,12 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
                 }
                 this.setState({
                   posts: posts,
-                  postHeadings: headings
+                  postHeadings: headings,
+                  postSlugs: encodedString
                 });
                 
             });
         });
-    });
-  }
-
-  scrollTo = (item: any) => {
-    this.setState({
-      page: Pages.Code
-    }, () => {
-      console.log(item)
-      window.scrollTo({top: item.ref.current.offsetTop, behavior: 'smooth'});
     });
   }
 
@@ -53,15 +48,14 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
   public render() {
     var renderItem : any[] = [];
     for(var item in this.state.posts){
-      var refs: React.RefObject<HTMLDivElement> = React.createRef();
-      renderItem.push(<div key={item + 'a'} ref={refs} className="App" dangerouslySetInnerHTML={{__html: this.state.posts[item]}}></div>)
+      renderItem.push(<div key={item + 'a'} className="App" dangerouslySetInnerHTML={{__html: this.state.posts[item]}}></div>)
       renderItem.push(<br key={item + 'b'}/>)
     }
 
     var scrollRenderItems: any[] = [];
     scrollRenderItems.push(<br />);
     for(var item in this.state.postHeadings) {
-      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}><a href="#" style={{outline:'none', color: '#0F0F0F'}}>{this.state.postHeadings[item]}</a></div>)
+      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}}><Link to={"/posts/" + this.state.postSlugs[item]} style={{outline:'none', color: '#0F0F0F'}}>{this.state.postHeadings[item]}</Link></div>)
       scrollRenderItems.push(<br key={item + 'd'} />);
     }
     let about = "Nitin Issac Joy\n Software Engineer at Microsoft Azure\n".split('\n').map((item, i) => <p key={i}>{item}</p>);
