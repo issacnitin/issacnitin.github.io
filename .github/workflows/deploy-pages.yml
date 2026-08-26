@@ -35,6 +35,10 @@ jobs:
         run: |
           npm run build
           cp build/index.html build/404.html
+          while IFS= read -r slug; do
+            mkdir -p "build/blog/${slug}"
+            cp build/index.html "build/blog/${slug}/index.html"
+          done < public/posts/postorder
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
