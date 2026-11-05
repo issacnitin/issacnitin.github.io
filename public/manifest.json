@@ -1,10 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Nitin's notebook",
+  "name": "Nitin Issac Joy | Software & stories",
   "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml" }
   ],
-  "start_url": "./index.html",
+  "start_url": "./",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#f9f8f5",
+  "background_color": "#f9f8f5"
 }
