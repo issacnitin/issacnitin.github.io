@@ -1,17 +1,39 @@
-.Header {
-    display: flex; 
-    flex-direction: row;
-    justify-content: flex-end;
-    background-color: #606060;
+.site-header {
+  min-height: 108px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--line);
 }
-
-.HeaderItems {
-    font-size: large;
-    padding: 20px;
-    border-radius: 5px;
-    margin: 2px;
+.brand { display: flex; align-items: center; gap: 14px; font-weight: 650; font-size: 15px; letter-spacing: -.2px; }
+.brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  background: var(--ink);
+  color: #fff;
+  font: bold 31px var(--serif);
+  letter-spacing: -3px;
+  padding-right: 4px;
 }
+.brand-mark span { color: #e7a28a; }
+.brand-subtitle { display: block; font-size: 11px; font-weight: 400; color: var(--muted); letter-spacing: .3px; }
+.site-nav { display: flex; align-items: center; gap: 32px; font-size: 13px; font-weight: 600; }
+.site-nav a { position: relative; padding: 12px 0; color: var(--muted); transition: color .2s; }
+.site-nav a:hover, .site-nav .nav-active { color: var(--ink); }
+.site-nav .nav-active::after { content: ""; position: absolute; bottom: 3px; left: 0; right: 0; height: 2px; background: var(--accent); }
+.site-nav .nav-github { border: 1px solid var(--line); padding: 9px 16px; border-radius: 7px; color: var(--ink); }
+.nav-github span { margin-left: 8px; }
 
-.HeaderItems:hover {
-    opacity: 0.7;
+@media (max-width: 600px) {
+  .site-header { min-height: 90px; gap: 12px; }
+  .brand { font-size: 13px; gap: 9px; }
+  .brand-mark { width: 36px; height: 36px; border-radius: 11px; font-size: 27px; }
+  .brand-subtitle { font-size: 10px; }
+  .site-nav { gap: 18px; font-size: 12px; }
+  .site-nav .nav-github { display: none; }
 }

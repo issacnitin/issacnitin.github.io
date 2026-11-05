@@ -35,6 +35,8 @@ jobs:
         run: |
           npm run build
           cp build/index.html build/404.html
+          mkdir -p build/about
+          cp build/index.html build/about/index.html
           while IFS= read -r slug; do
             mkdir -p "build/blog/${slug}"
             cp build/index.html "build/blog/${slug}/index.html"

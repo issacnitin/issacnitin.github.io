@@ -1,45 +1,19 @@
 import * as React from 'react';
+import { Link, NavLink } from 'react-router-dom';
 import './Header.css';
 
-interface IProps {
-    onClickToPage: (page: Pages) => void,
-    page: Pages
-}
-
-interface IState {
-
-}
-
-export enum Pages {
-    About,
-    Code,
-    Garage,
-    Travel,
-    Music
-}
-
-export default class Header extends React.Component<IProps, IState> {
-    constructor(props: any) {
-        super(props);
-    }
-
-    onClick = (page: Pages) => {
-        this.props.onClickToPage(page);
-    }
-
-    render() {
-        return (
-            <div className="Header">
-                <div className="HeaderItems" style={{backgroundColor: this.props.page == Pages.About ? '#F0F0F0' : 'black', color: this.props.page == Pages.About ? 'black' : 'white'}} onClick={this.onClick.bind(this, Pages.About)}>About</div>
-                <div className="HeaderItems" style={{backgroundColor: this.props.page == Pages.Code ? '#F0F0F0' : 'black', color: this.props.page == Pages.Code ? 'black' : 'white'}} onClick={this.onClick.bind(this, Pages.Code)}>Blog</div>
-                {
-                    /*
-                        <div className="HeaderItems" style={{backgroundColor: this.props.page == Pages.Garage ? '#F0F0F0' : 'black', color: this.props.page == Pages.Garage ? 'black' : 'white'}} onClick={this.onClick.bind(this, Pages.Garage)}>Garage</div>
-                        <div className="HeaderItems" style={{backgroundColor: '#F0F0F0', color: 'black'}}>Travel</div>
-                        <div className="HeaderItems" style={{backgroundColor: 'black', color: 'white'}}>Music</div>
-                    */
-                }
-            </div>
-        )
-    }
+export default function Header() {
+  return (
+    <header className="site-header">
+      <Link className="brand" to="/" aria-label="Nitin Issac Joy, home">
+        <span className="brand-mark" aria-hidden="true">n<span>.</span></span>
+        <span>Nitin Issac Joy<span className="brand-subtitle">Software &amp; stories</span></span>
+      </Link>
+      <nav className="site-nav" aria-label="Main navigation">
+        <NavLink exact to="/" activeClassName="nav-active">Writing</NavLink>
+        <NavLink to="/about" activeClassName="nav-active">About</NavLink>
+        <a className="nav-github" href="https://github.com/issacnitin">GitHub <span aria-hidden="true">&#8599;</span></a>
+      </nav>
+    </header>
+  );
 }
